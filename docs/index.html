@@ -1,0 +1,242 @@
+ 
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Dipole Propagation</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="min.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        WebFont.load({google: {families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Changa One:400,400italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500"]}});</script>
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+            type="text/javascript"></script><![endif]-->
+    <script type="text/javascript">!function (o, c) {
+        var n = c.documentElement, t = " w-mod-";
+        n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+    }(window, document);</script>
+    <link href="images/thumb.png"
+          rel="shortcut icon" type="image/x-icon"/>
+    <style>
+        .wf-loading * {
+            opacity: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div class="row">
+    <div class="cell"><img src="images/s2021-simple-logo.png"></div>
+</div>
+
+<div class="section hero p2m">
+    <div class="container-2 p2m_header_v2 w-container"><h1 class="title">Orienting Point Clouds with Dipole Propagation</h1>
+        <h1 class="subheader"> TLDR; Leveraging the power of neural networks and a robust and stable dipole propagation technique </h1>
+        <div class="p2m_authors_list_single w-row">
+            
+            <div class="w-col w-col-3 w-col-small-2 w-col-tiny-6">
+                <a class="authors" href="https://galmetzer.github.io/" target="_blank">Gal Metzer<sup>1</sup></a>
+            </div>
+            
+            <div class="w-col w-col-3 w-col-small-4 w-col-tiny-6">
+                <a class="authors" href="https://www.cs.tau.ac.il/~hanocka/" target="_blank">Rana Hanocka<sup>1</sup></a>
+            </div>
+            
+            <div class="w-col w-col-3 w-col-small-2 w-col-tiny-6">
+                <a class="authors" href="https://cims.nyu.edu/gcl/denis.html" target="_blank">Denis Zorin<sup>2</sup></a>
+            </div>
+            
+            <div class="w-col w-col-3 w-col-small-2 w-col-tiny-6">
+
+                <a class="authors" href="http://web.eng.tau.ac.il/~raja/" target="_blank">Raja Giryes<sup>1</sup></a>
+            </div>
+            
+        </div>
+
+        <div class="p2m_authors_list w-row center">
+
+            <div class="w-col w-col-3 w-col-small-2 w-col-tiny-6" style="margin-left: 25%;">
+
+                <a class="authors" href="https://cims.nyu.edu/gcl/daniele.html" target="_blank">Daniele Panozzo<sup>2</sup></a>
+            </div>
+            
+            <div class="w-col w-col-3 w-col-small-4 w-col-tiny-6">
+                <a class="authors" href="https://www.cs.tau.ac.il/~dcor/" target="_blank">Daniel Cohen-Or<sup>1</sup></a>
+            </div>
+
+        </div>
+        <br>
+        <div class="div-block-10">
+            <div class="equal_v2">Tel Aviv University<sup>1</sup></div>
+            &nbsp
+            <div class="equal_v2">New York University<sup>2</sup></div>
+        </div>
+
+        <div>
+            <br>
+            <span class="center"><img width=50% src="images/output.gif"></span>
+            <!--            <span class="center"><img src="https://gist.github.com/ranahanocka/9513a4444d38ea419a3d6922f3563831/raw/4d0b90de8beff343de236e198726e24eeda15b68/lizard.gif" alt="lizard.gif"></span>-->
+        </div>
+
+        <!--start links -->
+        <div class="p2m_authors_list_single w-row">
+            <div class="w-col w-col-4 w-col-small-3 w-col-tiny-4">
+                <a class="authors" href="" target="_blank">
+                    <a href="https://arxiv.org/abs/2105.01604" target="_blank"><i
+                            class="far fa-4x fa-file text-primary mb-3 "></i></a>
+                </a></div>
+
+            <div class="w-col w-col-4 w-col-small-3 w-col-tiny-4">
+                <a class="authors" href="" target="_blank">
+                    <a href="soon.html" target="_blank"><i
+                            class="fab fa-4x fa-github text-primary mb-3 "></i></a>
+                </a></div>
+
+            <div class="w-col w-col-4 w-col-small-3 w-col-tiny-4">
+                <a class="authors" href="" target="_blank">
+                    <a href="soon.html" target="_blank"><i
+                            class="fas fa-thumbtack fa-4x text-primary mb-3 "></i></a>
+                </a></div>
+        </div>
+
+
+        <div class="div-block-4 w-row">
+            <div class="w-col w-col-4 w-col-small-3 w-col-tiny-4">
+                <div class="text-block-2"><strong style="color:#18446c" class="icon-bold-text">Paper</strong></div>
+            </div>
+            <div class="w-col w-col-4 w-col-small-3 w-col-tiny-4">
+                <div class="text-block-2">
+                    <strong style="color:#18446c" class="icon-bold-text">Code</strong>
+                </div>
+            </div>
+            <div class="w-col w-col-4 w-col-small-3 w-col-tiny-4">
+                <div class="text-block-2"><strong style="color:#18446c" class="icon-bold-text">Slides</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <!--  end links  -->
+</div>
+</div>
+
+<div class="white_section">
+    <div class="w-container"><h2 class="grey-heading">Abstract</h2>
+        <p class="paragraph-3 the_text">
+            Establishing a consistent normal orientation for point clouds is a notoriously difficult problem in geometry processing,
+            requiring attention to both local and global shape characteristics.
+            The normal direction of a point is a function of the local surface neighborhood;
+            yet, point clouds do not disclose the full underlying surface structure.
+            Even assuming known geodesic proximity, calculating a consistent normal orientation requires the global context.
+            In this work, we introduce a novel approach for establishing a globally consistent normal orientation for point clouds.
+            Our solution separates the local and global components into two different sub-problems.
+            In the local phase, we train a neural network to learn a coherent normal direction per patch (i.e., consistently oriented normals within a single patch). 
+            In the global phase, we propagate the orientation across all coherent patches using a dipole propagation.
+            Our dipole propagation decides to orient each patch using the electric field defined by all previously orientated patches.
+            This gives rise to a global propagation that is stable, as well as being robust to nearby surfaces, holes, sharp features and noise. 
+        </p>
+    </div>
+</div>
+
+
+
+<!-- <div class="section the_section" data-anchor="slide1">
+    <div class="w-container"><h2 class="grey-heading">Video</h2>
+        Comming Soon!
+    </div>
+</div> -->
+
+<div class="section the_section" data-anchor="slide1">
+    <div class="w-container"><h2 class="grey-heading">Video</h2>
+        <video width="80%" controls>
+            <source src="images/vid.mp4" type="video/mp4">
+          </video>
+    </div>
+</div>
+
+
+
+
+
+<div class="white_section">
+    <div class="w-container"><h2 class="grey-heading">Dipole Normal Propagation Overview</h2>
+        <p class="paragraph-3 the_text" >
+            Locally, defining what is inside or the outside of the surface ((i.e., which direction the *surface* normal points)), is not well defined:
+        </p>
+        <div><span class="center" id="uncertain" ><img width=70% src="images/001_local_uncertain.png"></span></div>
+         <p class="paragraph-3 the_text">
+             The orientation of the surface in the indicated square, can not be determined without global context of the rest of the shape.
+         </br>
+         To alleviate this problem, we divide the orientation problem into two steps: Local and Global.
+            </p>
+
+        <p class="paragraph-3 the_text">
+            We start by orienting each local patch <i>coherently</i>: meaning that all normals in the patch should point <i>either</i> inside or outside the shape.
+            Locally, patches can be very complicated and non-convex, and constructing a hand crafted technique can be especially challenging.
+            Instead, we learn the correct orientation using a neural network, 
+            trained on ground truth point clouds sampled from oriented meshes.
+        </p>
+
+
+        <p class="paragraph-3 the_text">
+            Initially, the points are oriented according to a reference point (yellow) placed at the center mass of the patch. 
+        </p>
+        <div><span class="center"><img width="70%" src="images/majority_curve.png"></span></div>
+
+        <p class="paragraph-3 the_text">
+            Then, an ensemble of networks decides which points ought to be corrected.
+            Our network is trained to classify the incoherent point normals (in red).
+             After we <i>flip</i> the incoherent point normals, we obtain a coherently oriented patch.
+        </p>
+
+        <div><span class="center"><img src="images/patch_overview.jpg"></span></div>
+
+        <p class="paragraph-3 the_text">
+            After a collection of coherent patches is constructed, 
+            we use a robust and stable dipole propagation technique to align the local patches <i>Globally</i>.
+        </p>
+
+        <p class="paragraph-3 the_text">
+            Starting from the flattest patch, a dipole field from each point is iteratively constructed and used to determine the orientation for the rest of the patches.
+            At each step of the algorithm, the patch that has the strongest interaction with the field is selected,
+             and flipped (if needed) to align with the field according to the majority of its points.
+            The field is constructed globally, meaning that all previously oriented patches contribute to the total dipole field, giving global context at each step of the propagation.
+            In addition, the network-predicted confidence scores are used as the dipole magnitude of each point,
+            to prevent accumulative propagation error from uncertain points.
+        </p>
+
+        <div><span class="center"><img width=50% src="images/star.gif"></span></div>
+
+        <p class="paragraph-3 the_text">
+            This however does not requires a long time to compute, because a closed solution for the field at each point is available.
+            Also, because the dipole field arise from a solution to the Poisson equation which is linear, 
+            the contribution of patches is simply summed up to compute the total field. 
+            Allowing to only compute the delta contributions of each newly oriented patch in the iterative propagation process. 
+        </p>
+
+    </div>
+</div>
+
+
+
+<div class="white_section">
+    <div class="w-container"><h2 class="grey-heading">Acknowledgements</h2>
+        <p class="paragraph-3 the_text">
+           We thank <a class= "link" href="http://shihaowu.net/" target="_blank">Shihao Wu</a> for his helpful suggestions,
+            and are grateful for rendering help from <a class= "link" href="https://bioblog3d.wordpress.com/" target="_blank">Tamir Lousky</a>.
+        </br>
+        This work is supported by the European research council (ERC-StG 757497 PI Giryes),
+         and the Israel Science Foundation (grants no. 2366/16 and 2492/20).
+        <br>
+        This work was supported in part through the NYU IT High Performance Computing resources,
+        services, and staff expertise. This work was partially supported by the NSF CAREER award 1652515,
+         the NSF grants IIS-1320635, DMS-1436591, DMS-1821334, OAC-1835712, OIA-1937043, CHS-1908767, CHS-1901091,
+          a gift from Adobe Research, a gift from nTopology, and a gift from Advanced Micro Devices, Inc.
+        </p>
+    </div>
+</div>
+
+</body></html>
