@@ -83,10 +83,13 @@ Data thanks to [Self-Sampling](https://galmetzer.github.io/self-sample/) [NestiN
 If you find this code useful, please consider citing our paper
 ```
 @article{metzer2021orienting,
-  title={Orienting Point Clouds with Dipole Propagation},
-  author={Metzer, Gal and Hanocka, Rana and Zorin, Denis and Giryes, Raja and Panozzo, Daniele and Cohen-Or, Daniel},
-  journal={arXiv preprint arXiv:2105.01604},
-  year={2021}
+author = {Metzer, Gal and Hanocka, Rana and Zorin, Denis and Giryes, Raja and Panozzo, Daniele and Cohen-Or, Daniel},
+title = {Orienting Point Clouds with Dipole Propagation},
+year = {2021},
+publisher = {Association for Computing Machinery},
+volume = {40},
+number = {4},
+journal = {ACM Trans. Graph.},
 }
 ```
 
