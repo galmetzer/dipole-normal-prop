@@ -55,8 +55,8 @@ Example on a large point clouds
 - `alien.sh`
 
 #### Reference orientation
-Example of using the dipole field to transfer the orientation from an oriented source point cloud
-to an un-oriented target point cloud.
+Example of using the dipole field to transfer the orientation from an oriented point cloud
+to nearby points which are unoriented (e.g., generated using upsampling or consolidation).
 - `reference_orientation.sh` calculated on an output of [Self-Sampling](https://galmetzer.github.io/self-sample/) <br> 
 which does not have normal information for the produced consolidated point cloud.
 
