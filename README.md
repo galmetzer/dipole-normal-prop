@@ -16,9 +16,10 @@ and [Daniel Cohen-Or](https://danielcohenor.com/)
 - Clone this repo
 
 #### Setup Conda Environment
-To run the code, it is advised to create a new conda environment by running `conda create -n dipole python=3.6`
+To run the code, it is advised to create a new conda environment by running `conda create -n dipole python=3.6` </br>
+and activate it by running `conda activate dipole`
 
-and then install the required libraries below:
+then install the required libraries below:
 
 - [PyTorch](https://pytorch.org/) version 1.6.0 (might work with later versions as well) <br>
   install from [PyTorch getting started](https://pytorch.org/get-started/locally/) with your appropriate CUDATOOLKIT
@@ -40,10 +41,13 @@ The `/demos` folder contains demo scripts for running the code on point clouds f
 
 Simple `cd demos` and run any of the scripts:
 
+#### Visualizing Examples 
+The oriented point clouds can easialy be visualized by opening them with [MeshLab](https://www.meshlab.net/).
+
 #### Example Point Clouds
 - `fandisk.sh`
-- `hand.sh` 
-- `ok.sh`
+- `hand.sh` (Table 1 - 17_42l)
+- `ok.sh` (Table 1 - 09_41r)
 - `vase.sh`
 - `galera.sh`
 - `boxunion.sh`
@@ -51,18 +55,18 @@ Simple `cd demos` and run any of the scripts:
 
 #### Large Example Point Clouds
 Example on a large point clouds
-- `lion.sh`
-- `alien.sh`
+- `lion.sh` (Figure 17)
+- `alien.sh` (Figure 18)
 
 #### Reference orientation
 Example of using the dipole field to transfer the orientation from an oriented point cloud
 to nearby points which are unoriented (e.g., generated using upsampling or consolidation).
 - `reference_orientation.sh` calculated on an output of [Self-Sampling](https://galmetzer.github.io/self-sample/) <br> 
-which does not have normal information for the produced consolidated point cloud.
+which does not have normal information for the produced consolidated point cloud. (Figure 15)
 
 #### Simple Point Propagation
 Example of using dipole propagation individually per point i.e. without patching and network steps.
-- `ok_simple.sh`
+- `ok_simple.sh` (Same shape as Table 1 - 09_41r)
 
 #
 
