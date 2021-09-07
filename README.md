@@ -29,7 +29,8 @@ may use the helper installation script `./install_pytorch_geometric.sh` or from 
 - [argparse](https://docs.python.org/3/library/argparse.html) `pip install argparse`
 - [Open3D](http://www.open3d.org/) `pip install open3d` (optional for faster normal estimation)
 
-`./install.sh` is a full installation script for pytorch 1.6.0 and cudatoolkit 10.1.
+`./install_cu101.sh` is a full installation script for pytorch 1.6.0 and cudatoolkit 10.1. <br>
+`./install_cu102.sh` is a full installation script for pytorch 1.8.0 and cudatoolkit 10.2.
 
 # Running Examples
 The code contains three main orientation scripts

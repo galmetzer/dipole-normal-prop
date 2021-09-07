@@ -2,7 +2,7 @@
 
 # create and activate env
 conda create -n dipole python=3.6
-source activate dipole
+conda activate dipole
 
 # install pytorch
 conda install pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.1 -c pytorch
