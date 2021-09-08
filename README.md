@@ -30,7 +30,8 @@ may use the helper installation script `./install_pytorch_geometric.sh` or from 
 - [Open3D](http://www.open3d.org/) `pip install open3d` (optional for faster normal estimation)
 
 `./install_cu101.sh` is a full installation script for pytorch 1.6.0 and cudatoolkit 10.1. <br>
-`./install_cu102.sh` is a full installation script for pytorch 1.8.0 and cudatoolkit 10.2.
+`./install_cu102.sh` is a full installation script for pytorch 1.8.0 and cudatoolkit 10.2. <br>
+**Make sure to change `/path-to-anaconda3` in the installation script to the path on your machine**
 
 # Running Examples
 The code contains three main orientation scripts
