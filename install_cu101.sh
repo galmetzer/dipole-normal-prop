@@ -2,6 +2,7 @@
 
 # create and activate env
 conda create -n dipole python=3.6
+source /path-to-anaconda3/etc/profile.d/conda.sh
 conda activate dipole
 
 # install pytorch
